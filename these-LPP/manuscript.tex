@@ -1,4 +1,4 @@
-% !TEX root=/home/tavant/these/manuscript/src/manuscript.tex
+ 
 
 \documentclass[
    % a4paper,	%Pour papier A4
@@ -41,7 +41,6 @@
 {Chapitre1/}{Chapitre1/figure/}%
 {Context/figure/}%
 {Chapitre2/figure/}%
-{Chapitre3/figure/}%
 }  % Location of the graphics files (set up for graphics to be in PDF format)
 
 % \geometry{  % the margins
@@ -64,6 +63,8 @@
 \renewcommand\contentsname{Table of Content}
 
 \include{texfiles/1ere}
+
+\includepdf[pages=-]{Covers-IPParis/1ere.pdf}
 
 % Taille papier B5:
 % 176 par 250 mm
@@ -122,12 +123,13 @@
 \mainmatter
 
 %--------------
-% Compute the numbre of pages in each chapters
+% uncomment to Compute the numbre of pages in each chapters
 % Context \pageCompt{ch-concepts}{ch-1}
 % 
 % Chapitre \pageCompt{ch-1}{ch-2}
 % 
 % Chapitre \pageCompt{ch-2}{ch-bibliography}
+%---------------------
 
 
 \renewcommand\subfigurewidth{0.47\textwidth} % defautl value for the subfigure width
@@ -160,6 +162,7 @@
 
 
 \input{texfiles/4eme}
+\includepdf[pages=-] {Covers-IPParis/4eme.pdf}
 
 \end{document}
 
