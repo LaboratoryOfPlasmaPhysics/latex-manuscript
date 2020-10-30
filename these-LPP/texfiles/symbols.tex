@@ -1,0 +1,150 @@
+% !TEX root=/home/tavant/these/manuscript/src/manuscript.tex
+
+\usepackage{xspace}
+\xspaceaddexceptions{]\}}
+
+
+%Uncomment next line if AMS fonts required
+%\usepackage{iopams}
+\newcommand{\prl}{\parallel}
+\newcommand{\estar}{\epsilon^*}
+\newcommand{\Te}{\mathrm{T_e}}
+\newcommand{\Teb}{\mathrm{T_{e, 0}}}
+\newcommand{\Tew}{\mathrm{T_{e, wall}}}
+\newcommand{\Tepar}{\mathrm{T_e}_{\prl}}
+\newcommand{\Ti}{\mathrm{T_i}}
+\newcommand{\Ts}{\mathrm{T_s}}
+\newcommand{\Tsee}{\mathrm{T_{SEE}}}
+\newcommand{\sig}{\sigma\xspace}
+\newcommand{\sigm}{\sigma_{\rm max}\xspace}
+\newcommand{\sigo}{\sigma_0\xspace}
+
+\newcommand{\norm}[1]{\lvert#1\rvert}
+\renewcommand{\vec}[1]{{\bf #1}}
+\newcommand{\eV}{{\mathrm{\,V}}}
+\newcommand{\LPPicname}{{\it LPPic}}
+\newcommand{ \red}{\color{red}}
+\newcommand{\ek}{\epsilon}
+
+\usepackage{upgreek}
+\newcommand{\mus}{\mathrm{\upmu  s}}
+
+\renewcommand{\div}{\nabla \cdot}
+
+\newcommand{\lb}{\left[}
+\newcommand{\rb}{\right]}
+
+\newcommand{\lp}{\left(}
+\renewcommand{\rp}{\right)}
+
+\newcommand{\dphi}{\Delta \phi}
+\newcommand{\dphisheath}{\Delta \phi_{\rm sheath}}
+\newcommand{\mobe}{\mu_{\mathrm{e}}}
+\newcommand{\mobeffsat}{\mu_{\mathrm{eff}}^{sat}}
+\newcommand{\mobeff}{\mu_{\mathrm{eff}}}
+\newcommand{\mobcla}{\mu_{\mathrm{classical}}}
+\newcommand{\mobpic}{\mu_{\mathrm{PIC}}}
+\newcommand{\M}[1]{{\bf M#1}}
+
+\newcommand{\Ee}{{\mathcal{E}_e}}
+\newcommand{\Es}{{\mathcal{E}_s}}
+
+\newcommand\Npc{N_{\rm pc}}
+\newcommand\Isp{\ensuremath {\rm I_{\rm sp}} \xspace}
+
+% 10^number: use as \sn{Value}{Power} for value x 10^Power
+\newcommand{\sn}[2]{\ensuremath{{{#1}{\times}10^{#2}}}}
+
+
+%mean notation. May need an average command as well
+%\newcommand{\mean}[1]{{\overline{#1}}}
+
+\newcommand\LPPic{{\it LPPic} }
+
+\newcommand\dt{\ensuremath{\Delta t} }
+
+
+\newcommand{\vect}[1]{{\mathbf #1}}
+\newcommand{\epsr}{\epsilon_{R}}
+\newcommand{\V}{\Omega_{i,j}}
+\newcommand{\C}{C_{i,j}}
+
+\DeclareMathOperator{\grad}{\vect{\nabla}}
+\newcommand{\deriv}[2]{\frac{\partial #1}{\partial #2}}
+
+\newcommand{\dx}{\Delta x}
+\newcommand{\dy}{\Delta y}
+
+\newcommand{\N}{\ensuremath{\mathcal{N}}}
+\newcommand\stdconv{\ensuremath{\sigma_{\rm Reinj}}}
+\newcommand{\aziE}{ {\ensuremath{E_{\theta}}}}
+\newcommand\FFT{\ensuremath{ \mathcal{FFT}}}
+\newcommand\FT{\ensuremath{ \mathcal{FT}}}
+
+%========================
+% Nomenclature
+
+%% This code creates the groups
+% -----------------------------------------
+
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{P}{Physics Constants}{%
+  \ifstrequal{#1}{N}{Numerical Implementation}{%
+  \ifstrequal{#1}{Q}{Quantities}{}}}%
+]}
+
+% This will add the units
+%----------------------------------------------
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+%----------------------------------------------
+
+\newcommand\PPS{PPS\textregistered }
+
+\newcommand\proba{\ensuremath{\sigma }}
+\newcommand\probamax{\ensuremath{\proba_{\rm max} }}
+
+\newcommand\rate{\ensuremath{ \bar{\proba}}\xspace}
+\newcommand\ratemaxw{\ensuremath{ \bar{\proba}_{\rm Maxw}}\xspace}
+\newcommand\ratepic{\ensuremath{ \bar{\proba}_{\rm PIC}}\xspace}
+\newcommand\ratecr{\ensuremath{ \bar{\proba}_{\rm cr}}\xspace}
+
+
+\newcommand\mob{\ensuremath{\mu_e}}
+\newcommand\mobunit{\ensuremath{ \text{m}^2\text{(Vs)}^{-1}}  }
+\newcommand\oce{\ensuremath{\omega_{ce}}}
+\newcommand\ope{\ensuremath{\omega_{pe}}}
+\newcommand\opi{\ensuremath{\omega_{pi}}}
+\newcommand\lde{\ensuremath{\lambda_{De}}}
+\newcommand\crover{\ensuremath{\ek^{*}}}
+
+\newcommand\stdE{\ensuremath{\sigma_{E_{\theta}}}}
+
+\newcommand\dne{\ensuremath{\delta n_e}}
+\newcommand\dEt{\ensuremath{\delta E_{\theta}}}
+\newcommand\Rei{\ensuremath{R_{ei}}}
+\newcommand\viout{\ensuremath{  v_{i, \rm out} }}
+
+\let\arobase\at
+\renewcommand{\at}[1]{ \ensuremath{ \bigg\vert_{#1} }}
+
+\newcommand\dphiscl{\ensuremath{\dphi_{\rm SCL}}}
+
+
+\newcommand\kms{\ensuremath{ \kilo\meter\per\second }}
+
+\newcommand\ztheta{\ensuremath{ ( \mathbf Z - \theta) } }
+
+%nomenclature text 
+\renewcommand{\nompreamble}{In this work we use the SI system of units, except for a few units specific to the plasma community that are describe below. The notations in general follow common usage. The vectors are noted in bold, as $\vect{v}$, $\vect{E}$, etc.
+Complex quantities are not distinguished from real ones.
+
+The next list describes several symbols that will be later used within the body of the document.}
+
+\nomenclature[P]{Torr}{Equivalent to one millimeter of mercury, \nomunit{$1$\,Torr = 133.32 \pascal}}
+\nomenclature[P]{Gauss}{Unit of magnetic flux density in cgs (centimeter-gram-second units) \nomunit{$1$\,G = $\sn{1}{-4}\,\tesla $}}
+\nomenclature[P]{eV}{Unit of energy, corresponds to the kinetic energy of one electron accelerated by an electric potential difference of one volt. It is usually used in plasma physics as a unit of temperature via the Boltzmann constant. \nomunit{$1$\,eV $\simeq \sn{1.602}{-19}\,\joule$  }}
+
+\nomenclature[P]{\ensuremath{ K_B}}{Boltzmann constant \nomunit{$\sn{1.380649}{-23}\,\joule\per\kelvin$}}
+\nomenclature[P]{\ensuremath{ e}}{Elementary charge \nomunit{$\sn{1.602176634}{-19}$\,C}}

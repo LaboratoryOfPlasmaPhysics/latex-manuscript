@@ -1,0 +1,55 @@
+% !TEX root=/home/tavant/these/manuscript/src/manuscript.tex
+
+
+%-----------
+\dominitoc%[n] 		% Initialisation de minitoc ([n] enleve le ``content'')
+
+\tableofcontents  		% Table des Matières
+\addcontentsline{toc}{chapter}{\contentsname} \mtcaddchapter
+%-----------
+\makeatletter
+  \providecommand\@dotsep{5}
+\makeatother
+
+\clearpage
+\ifodd\value{page}\else
+  \thispagestyle{empty}
+\fi
+
+% \listoftodos
+% \addcontentsline{toc}{chapter}{List of notes} \mtcaddchapter
+% \relax
+
+% % liste des figures
+\listoffigures \addcontentsline{toc}{chapter}{\listfigurename} \mtcaddchapter
+% \cleardoublepage
+\clearpage
+\ifodd\value{page}\else
+  \thispagestyle{empty}
+\fi
+%
+% % liste des tableaux
+\listoftables \addcontentsline{toc}{chapter}{\listtablename} \mtcaddchapter
+% \cleardoublepage
+\clearpage
+\ifodd\value{page}\else
+  \thispagestyle{empty}
+\fi
+%
+% % liste des algos
+% \lstlistoflistings \addcontentsline{toc}{chapter}{\lstlistlistingname} \mtcaddchapter
+
+% % Add List of Acronymes
+\input{texfiles/acronyms}
+
+% % Add list of symbols
+
+
+%==============================
+%  Nomanclature \string: list of the symbols used
+
+
+\printnomenclature
+\addcontentsline{toc}{chapter}{\nomname} \mtcaddchapter
+%\inlinenote{Update with the variable name}
+

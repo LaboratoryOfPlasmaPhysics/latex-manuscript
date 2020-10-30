@@ -11,6 +11,7 @@
 *.cb
 *.cb2
 .*.lb
+*.mtc
 
 ## Intermediate documents:
 *.dvi
@@ -274,3 +275,15 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+#atom
+.atomignore
+
+#pycharm
+.idea
+#ipyng
+.ipynb_checkpoints
+
+#gimp
+*.xcf
+

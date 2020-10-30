@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Modèle pour la 4ème de couverture des thèses préparées à l'Institut Polytechnique de Paris, basé sur le modèle produit par Nikolas STOTT / Template for back cover of thesis made at Institut Polytechnique de Paris, based on the template made by Nikolas STOTT
+%%% Mis à jour par Aurélien ARNOUX (École polytechnique)/ Updated by Aurélien ARNOUX (École polytechnique)
+%%% Les instructions concernant chaque donnée à remplir sont données en bloc de commentaire / Rules to fill this file are given in comment blocks
+%%% ATTENTION Ces informations doivent tenir sur une seule page une fois compilées / WARNING These informations must contain in no more than one page once compiled
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Version du 22 août 2019 (version initiale)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{geometry}
+\geometry{
+left=16mm,
+top=30mm,
+right=16mm,
+bottom=30mm
+}
+\usepackage{xcolor}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{multicol}
+\setlength{\columnseprule}{0pt}
+\setlength\columnsep{10pt}
+
+\usepackage[french]{babel}
+
+\label{form}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Formulaire / Form
+%%% Remplacer les paramètres des \newcommand par les informations demandées / Replace \newcommand parameters by asked informations
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\logoEd}{EDIPP}																		%% Logo de l'école doctorale. Indiquer le sigle / Doctoral school logo. Indicate the acronym : EDMH, (EDIPP)
+\newcommand{\PhDTitleFR}{{\'E}tude numérique du transport des électrons dans un propulseur à effet Hall}													%% Titre de la thèse en français / Thesis title in french
+\newcommand{\keywordsFR}{Propulsion électrique, propulseur de Hall, simulation PIC, benchmark, instabilités}														%% Mots clés en français, séprarés par des , / Keywords in french, separated by ,
+\newcommand{\abstractFR}{Ces dernières années, le nombre de satellites en orbite autour de la Terre a augmenté de manière exponentielle. Grâce à leur faible consommation en carburant, de plus en plus de propulseurs électriques sont utilisés à bord de ces satellites, notamment le propulseur de Hall qui est l'un des plus efficaces. De la diversité des applications découle le besoin d'avoir des propulseurs de taille et puissance variables. Cependant, la physique des propulseurs de Hall est encore méconnue et les nouveaux designs se font de manière empirique, avec un dévelopemment long et coûteux, pour un résultat final limité. Pour pallier ce problème, des codes de simulation peuvent être utilisés mais une meilleure compréhension des phénomènes clés est alors nécessaire, plus particulièrement du transport anormal des électrons qui doit être pris en compte de manière auto-consistante pour pouvoir capturer totalement le comportement de la décharge.
+	
+	Ce transport étant relié à l'instabilité azimuthale de dérive électronique, un code 2D particulaire existant a été amélioré pour pouvoir simuler cette direction azimuthale mais aussi la direction axiale. Avant d'analyser le comportement de la décharge, ce code a été vérifié sur un cas de benchmark, avec 6 autres codes particulaires développés par différents groupes de recherches internationaux. Ce cas simplifié a été ensuite utilisé pour vérifier de manière intensive un dévelopemment analytique pour estimer la force de friction électron-ion, qui est le témoin de la contribution des instabilités azimuthales sur le transport anormal. Puis, la dynamique des neutres a été rajoutée pour capturer de manière auto-consistante le comportement de la décharge. Une technique artificielle de loi d'échelle a été adoptée, avec une augmentation de la permittivité du vide, pour alléger les contraintes de stabilité du code particulaire et accélérer les simulations. Grâce à une parallélisation du code efficace, ce facteur artificiel a été réduit de manière significative, se rapprochant ainsi d'un cas proche de la réalité. La force de friction électron-ion a été observée comme étant celle qui contribuait le plus au transport anormal durant les oscillation basse-fréquence du mode de respiration. Pour finir, l'interaction complexe entre le mode de respiration, l'instabilité de transit des ions et l'instabilité de dérive électronique a aussi été étudiée, avec la formation de structures azimuthales à grande longueur d'onde, associées à un plus grand transport anormal.}															%% Résumé en français / abstract in french
+
+\newcommand{\PhDTitleEN}{Numerical study of electron transport in Hall Thrusters}													%% Titre de la thèse en anglais / Thesis title in english
+\newcommand{\keywordsEN}{Electric propulsion, Hall thruster, PIC simulation, benchmark, instabilities}														%% Mots clés en anglais, séprarés par des , / Keywords in english, separated by ,
+\newcommand{\abstractEN}{In the last decade, the number of satellites orbiting around Earth has grown exponentially. Thanks to their low propellant consumption, more and more electric thrusters are now used aboard these satellites, with the Hall thrusters being one of the most efficient. From the diversity of applications stems the need of widening the thruster power capabilities.  However, due to a lack of knowledge on Hall thruster physics, this scaling is currently done empirically, which limits the efficiency of the newly developed thrusters and increases the development time and cost. To overcome this issue, numerical models can be used but a deeper understanding on key phenomena is still needed, more specifically on the electron anomalous transport which should be self-consistently accounted for to properly capture the discharge behaviour. 
+	
+As this transport is related to the azimuthal electron drift instability, an existing 2D Particle-In-Cell code was further developed to simulate this azimuthal direction along with the axial direction in which the ions are accelerated, producing the thrust. Prior to analyse the discharge behaviour, this code has been verified on a benchmark case, with 6 other PIC codes developed in different international research groups. This simplified case was later used to stress-test previous analytical developments to approximate the instability-enhanced electron-ion friction force which represents the contribution of the azimuthal instabilities to the anomalous transport. Then, the neutral dynamics has been included to capture the full self-consistent behaviour of the discharge. We used an artificial scaling technique, increasing the vacuum permittivity, to relax the PIC stability constraints and speed-up the simulations. Thanks to an efficient code parallelisation, we managed to reduce this scaling factor to a small value, hence simulating a case close to reality.  The electron-ion friction force was found to be the main contributor to the anomalous transport throughout the whole low-frequency breathing mode oscillations.  Finally, the complex interaction between the breathing mode, the ion-transit time instabilities and the azimuthal electron drift instabilities has been studied, with the formation of long-wavelength structures associated with an enhanced anomalous transport.}															%% Résumé en anglais / abstract in english
+
+\label{layout}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Mise en page / Page layout      
+%%% NE RIEN MODIFIER / DO NOT MODIFY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\pagestyle{empty}
+
+%%% Logo de l'école doctorale. Le nom du fichier correspond au sigle de l'ED / Doctoral school logo. Filename correspond to doctoral school acronym
+%%% Les noms valides sont / Valid names are : EDMH, (EDIPP)
+\begin{textblock*}{61mm}(16mm,3mm)
+	\noindent\includegraphics[height=24mm]{media/\logoEd}
+\end{textblock*}
+
+
+
+%%%Titre de la thèse en français / Thesis title in french
+\begin{center}
+\fcolorbox{black}{white}{\parbox{0.95\textwidth}{
+{\bf Titre:} \PhDTitleFR 
+\medskip
+
+%%%Mots clés en français, séprarés par des ; / Keywords in french, separated by ;
+{\bf Mots clés:} \keywordsFR 
+\vspace{-2mm}
+
+%%% Résumé en français / abstract in french
+\begin{multicols}{2}
+{\bf Résumé:} 
+\abstractFR 
+\end{multicols}
+}}
+\end{center}
+
+\vspace*{0mm}
+
+%%%Titre de la thèse en anglais / Thesis title in english
+\begin{center}
+\fcolorbox{black}{white}{\parbox{0.95\textwidth}{
+{\bf Title:} \PhDTitleEN 
+
+\medskip
+
+%%%Mots clés en anglais, séprarés par des ; / Keywords in english, separated by ;
+{\bf Keywords:}  \keywordsEN %%3 à 6 mots clés%%
+\vspace{-2mm}
+\begin{multicols}{2}
+	
+%%% Résumé en anglais / abstract in english
+{\bf Abstract:} 
+\abstractEN
+\end{multicols}
+}}
+\end{center}
+
+
+\begin{textblock*}{161mm}(10mm,270mm)
+\color{black}
+{\bf\noindent Institut Polytechnique de Paris	         }
+
+\noindent
+\noindent 91120 Palaiseau, France 
+\end{textblock*}
+
+\begin{textblock*}{20mm}(175mm,265mm)
+\includegraphics[width=20mm]{media/IPPARIS-petit}
+\end{textblock*}
+
+\end{document}

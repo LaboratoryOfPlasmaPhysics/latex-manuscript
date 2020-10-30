@@ -1,0 +1,329 @@
+% !TEX root=/home/tavant/these/manuscript/src/manuscript.tex
+\usepackage{lipsum}
+
+\usepackage[english,french]{babel}
+\shorthandoff{:}
+% \usepackage{parskip}  %% Add spaces between paragraphs
+% -------------
+% font spec
+%-----------
+\usepackage[T1]{fontenc}
+
+% \usepackage{ebgaramond}
+
+% hid all of the warning related to acro package
+\usepackage{silence}
+\WarningFilter{latex}{Label `acro:}
+\WarningFilter{todonotes}{The length marginparwidth}
+
+%-------------
+% Setting the font familly for the titles 
+%-------------
+\usepackage[nobottomtitles*]{titlesec}
+\usepackage{titling}
+% Specify different font for section headings
+\newcommand*{\headingfont}{\fontfamily{phv}\selectfont}
+
+\titleformat{\chapter}[display]{\Huge\headingfont}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titleformat*{\section}{\LARGE\headingfont}
+\titleformat*{\subsection}{\Large\headingfont}
+\titleformat*{\subsubsection}{\large\headingfont}
+
+%use \showfont to print the current font used
+\makeatletter
+\newcommand{\showfont}{encoding\string: \f@encoding{},
+  family\string: \f@family{},
+  series\string: \f@series{},
+  shape\string: \f@shape{},
+  size\string: \f@size{}
+}
+\newcommand{\iffont}[3]{\ifthenelse{\equal{\f@family}{#1}}{#2}{#3}}
+\makeatother
+
+
+
+\usepackage{lmodern}% http\string://ctan.org/pkg/lm for allowing arbitrary font size
+\newcommand{\hsc}[1]{{\footnotesize\MakeUppercase{#1}}}   % Fake Small Caps
+
+% \usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}  % For french special characters 
+\usepackage{eso-pic}	%eso-pic pour mettre des images avant les chapitres
+\usepackage{float, caption}
+\usepackage{amsmath,amssymb,mathrsfs,amsfonts}
+\usepackage[amssymb]{SIunits}   %SI units, with dots for multiplications and medium space befor the unit
+
+\usepackage[thmmarks,amsmath]{ntheorem}
+\usepackage{array, multirow, tabularx}
+\usepackage{mathrsfs}                   %pour faire des cursives dans les formules
+
+\usepackage{empheq}  % better highlights in equations
+\usepackage{cases}  % for cases in equations
+
+\usepackage{listings}		        %Pour ecrire du code
+\usepackage[final]{pdfpages}		%Pour insérer des feuilles pdf (page de garde+abstracts)
+\usepackage{minitoc} 			%Pour faire des mini tables des matières en début de chapitre
+
+\usepackage{xcolor} %pour avoir les couleurs
+
+\usepackage{geometry}
+
+
+\usepackage[nocfg]{nomencl}
+\renewcommand{\nomname}{Nomenclature and List of Symbols}
+\makenomenclature
+
+\usepackage{textcomp} %pour les apostrophes
+\usepackage[nottoc,numbib,notlof,notlot]{tocbibind} %pour afficher l'entrée biblio dans la table des matières
+%\usepackage[firstpage]{draftwatermark} %pour marquer draft sur la première page
+%\SetWatermarkScale{6} %taille de la watermark
+%\SetWatermarkLightness{0.9} %transparence de la watermark
+
+
+% GRAPHICS
+\usepackage{graphicx}
+\usepackage{subfig}	%pour mettre des subplots
+
+
+\usepackage{etoolbox}
+\patchcmd{\chapter}{plain}{empty}{}{}
+% Remove warning from the bibliography URL too long
+% Variant A
+\apptocmd{\sloppy}{\hbadness 4492\relax}{}{}
+% Variant B
+% \apptocmd{\thebibliography}{\raggedright}{}{}
+
+\usepackage{smartdiagram}
+
+
+\definecolor{lightgray}{gray}{0.95}
+\hyphenation{Fortran}		        %Pour eviter l'hyphenation de "Fortran"
+
+\lstset{language=[90]Fortran,	%Pour bien ecrire le code en Fortran
+  basicstyle=\fontsize{11}{13}\selectfont\ttfamily,
+  keywordstyle=\color{gray},
+  commentstyle=\color{blue},
+  morecomment=[l]{!\ },  %Comment only with space after !
+  captionpos=b, % sets the caption-position to bottom
+  frame=single, % adds a frame around the code
+  %numbers=left, % where to put the line-numbers
+  %numbersep=5pt, % how far the line-numbers are from the code
+  %stepnumber=2, % the step between two line-numbers
+  rulecolor=\color{black}, % if not set, the frame-color may be changed
+  backgroundcolor=\color{lightgray}, % choose the background color
+  breaklines=true %break lines if too long
+}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+
+
+% For better intext references. By example \cref{fig\string:X} produces "Fig. n° X" instead of just "X"
+\usepackage{varioref} % add the page when the object is far away
+
+
+
+
+
+% For better citations.
+% \usepackage[firstinits=true]{biblatex}
+\usepackage[numbers,
+            ]{natbib}
+%%-------------------> 
+% \usepackage{citebackref} % optionnal
+%%------------------->
+\usepackage{bibentry} % Includ the bibliography in the text.
+\usepackage{filecontents}
+\nobibliography*
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%  Overlay bar for means
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newlength\mylenA
+\usepackage[super]{nth}
+
+\newcommand*\mean[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+
+
+\input{texfiles/settings_notes}
+
+
+\usepackage{acronym}  %to handle acronym
+
+
+% Define the abstract Env.
+\usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \pagestyle{plain}
+% \pagestyle{empty}
+% \fancyhf{}
+% \fancyhead[LE,RO]{Overleaf}
+% \fancyhead[RE]{\chaptername}
+% \fancyhead[LE]{\thepage}
+
+\newenvironment{abstract}%
+    {\cleardoublepage\thispagestyle{empty}\null\vfill\begin{center}%
+    \bfseries\abstractname\end{center}}%
+    {\vfill\null}
+
+
+% ignore bibliorapgy if empty
+\let\myBib\thebibliography
+
+\renewcommand\thebibliography[1]{\ifx\relax#1\relax\else\myBib{#1}\fi}
+
+%for linebreak
+\renewcommand\linebreak{\vspace{1em}}
+
+
+
+\newenvironment{zzz}
+               {\list{}{\rightmargin0pt \leftmargin4em }%
+                \item\relax}
+               {\endlist}
+
+\newcommand\subfigurewidth{2.5in}
+\newcommand\defaultwidth{3.5in}
+
+\usepackage[]{algorithm2e}
+ \usepackage{mathtools}
+
+
+ %===================
+ % Subfigures
+\usepackage[percent]{overpic}
+%Floats
+\usepackage{placeins}  % allows \FloatBarrier
+\usepackage{afterpage}
+\newcommand\subfiguretics[3]{
+\begin{overpic}[width=\subfigurewidth,grid,tics=10]{#1}
+ \put (#3) {\bf #2}
+\end{overpic}
+}
+\newcommand\subfigure[3]{
+\begin{overpic}[width=\subfigurewidth]{#1}
+ \put (#3) {\bf #2}
+\end{overpic}
+}
+
+
+%% table
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+
+%% Fix acronym and cleveref
+
+\makeatletter
+% \newcommand*{\org@overidelabel}{}
+% \let\org@overridelabel\@verridelabel
+% \@ifpackagelater{acronym}{2015/03/21}{% v1.41
+%   \renewcommand*{\@verridelabel}[1]{%
+%     \@bsphack
+%     \protected@write\@auxout{}{\string\AC@undonewlabel{#1@cref}}%
+%     \org@overridelabel{#1}%
+%     \@esphack
+%   }%
+% }{% older versions
+%   \renewcommand*{\@verridelabel}[1]{%
+%     \@bsphack
+%     \protected@write\@auxout{}{\string\undonewlabel{#1@cref}}%
+%     \org@overridelabel{#1}%
+%     \@esphack
+%   }%
+% }
+
+% 
+% \def\@testdef #1#2#3{%
+%   \def\reserved@a{#3}\expandafter \ifx \csname #1@#2\endcsname
+%  \reserved@a  \else
+% \typeout{^^Jlabel #2 changed\string:^^J%
+% \meaning\reserved@a^^J%
+% \expandafter\meaning\csname #1@#2\endcsname^^J}%
+% \@tempswatrue \fi}
+\makeatother
+
+
+%  ==================
+% Introduction
+\usepackage{epigraph}
+
+\newcommand\quotechapt[2]{
+\begin{flushright}
+  \begin{minipage}{8cm}
+  \emph{ #2}
+\rule{0.4\textwidth}{1pt}
+
+#1
+\end{minipage}
+\end{flushright}
+}
+
+%\newenvironment{Chabstract}{\leftskip1in\itshape { }{ } }
+
+\newenvironment{Chabstract} { \begin{quote}
+\small   }
+{\end{quote}}
+
+
+\newcommand\headerchaptername[1]{
+\renewcommand\leftmark{  \expandafter\MakeUppercase{ \chaptername\ \thechapter.\ #1}}
+}
+
+\newcommand\pageCompt[2]{ \ref{#1} has [\the\numexpr\getpagerefnumber{#2}-\getpagerefnumber{#1}\relax] pages in it. }
+
+\ifpdf
+  \usepackage[pagebackref=false,  % add the pages where the citation is used
+              hyperindex=true,
+              colorlinks=true]{hyperref}
+  \hypersetup{pdfstartview={FitH}, bookmarksnumbered={true}}
+
+\else
+  \usepackage[hypertex=true,hyperindex=true,colorlinks=false]{hyperref}
+\fi
+
+\usepackage{bookmark}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{xcolor}
+
+
+\usepackage[capitalise]{cleveref}  %hance, uyse \vref for the page reference, else \cref only
+\hypersetup{
+    colorlinks,
+    allcolors={black},
+    linkcolor={black},
+    anchorcolor={black}
+    citecolor={black},
+    urlcolor={blue!80!black},
+    breaklinks
+}
+
+\newcommand*\cleartoleftpage{%
+   \clearpage
+   \ifodd\value{page}\hbox{}\vspace*{\fill}\thispagestyle{empty}\newpage\fi
+}
+
+\usepackage{ifthen,changepage}
+\usepackage{pdfpages}
