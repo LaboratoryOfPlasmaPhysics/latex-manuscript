@@ -6,7 +6,7 @@
 % \usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
 \usepackage[colorinlistoftodos,prependcaption,textsize=small]{todonotes}
 
-\newcommandx{\unsure}[2][1=]{\todo[inline,linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\unsure}[2][1=]{\todo[inline,linecolor=red,backgroundcolor=red!35,bordercolor=red,#1]{#2}}
 
 \newcommandx{\change}[2][1=]{\todo[inline,linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 
@@ -16,3 +16,4 @@
 
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[noline,disable,#1]{#2}}
 \newcommandx{\inlinenote}[2][1=]{\todo[inline,size=\small,#1]{#2}}
+\newcommandx{\note}[2][1=]{\todo[size=\small,#1]{#2}}
